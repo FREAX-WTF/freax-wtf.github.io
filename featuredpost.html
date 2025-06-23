@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Featured Post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico">
+
+  <!--
+    === THEME SECTION ===
+    Change these values to modify the post's color scheme to the liking of yours.
+  -->
+  <style>
+    :root {
+      --bg: #111;
+      --fg: #eee;
+      --accent: #ffdd55;
+      --card: #1b1b1b;
+      --border: #333;
+    }
+  </style>
+
+  <style>
+    @font-face { font-family: 'TitleFont'; src: url('title.ttf') format('truetype'); }
+    @font-face { font-family: 'HeaderFont'; src: url('header.ttf') format('truetype'); }
+    @font-face { font-family: 'BodyFont'; src: url('body.ttf') format('truetype'); }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'BodyFont', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+
+    header {
+      background: #222;
+      padding: 1rem;
+      border-bottom: 4px solid var(--accent);
+      text-align: center;
+      font-family: 'HeaderFont';
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    .container {
+      flex: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .featured-post {
+      background: var(--card);
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .featured-post img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .featured-content h1 {
+      font-family: 'HeaderFont';
+      color: var(--accent);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .featured-content p {
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    .featured-content .meta {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #1b1b1b;
+      color: #888;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      border-top: 2px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- HEADER TEXT, KEEP CONSISTENT FOR BRANDING -->
+    <span>FEATURED POST</span>
+  </header>
+
+  <div class="container">
+    <!-- FEATURED POST TEMPLATE -->
+    <div class="featured-post">
+      <img src="featured.png" alt="Featured Image">
+      <div class="featured-content">
+        <div class="meta">Published June 22, 2025 by Chiyo Tanaka</div>
+        <h1>WERE LIVE WAHOO!</h1>
+        <p>
+          This post serves to show we have become LIVE!!! as of rn, everything is skidded lmao so pls bear with us...
+        </p>
+        <p>
+          YOU CAN DO CTRL+U AND MAKE YOUR OWN POSTS, I PUT NEAT LITTLE NOTES AROUND >.<
+        </p>
+        <p>
+          PLEASE SUPPORT THE PROJECT BY CONTRIBUTING, I LOVE YOU ALL!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Chiyo Tanaka. All rights reserved.
+  </footer>
+</body>
+</html>
