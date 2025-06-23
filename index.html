@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FREAX.WTF</title>
+  <meta name="description" content="FREAX.WTF: Free, customizable subdomains for unified tech communities. No ads, no gatekeepers, just expression.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    @font-face { font-family: 'TitleFont'; src: url('title.ttf') format('truetype'); }
+    @font-face { font-family: 'HeaderFont'; src: url('header.ttf') format('truetype'); }
+    @font-face { font-family: 'BodyFont'; src: url('body.ttf') format('truetype'); }
+    :root {
+      --bg: #111;
+      --fg: #eee;
+      --accent: #ffdd55;
+      --card: #1b1b1b;
+      --border: #333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'BodyFont', monospace;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--card);
+    }
+    body::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: var(--accent);
+      border-radius: 10px;
+    }
+    body::-webkit-scrollbar-track {
+      background: var(--card);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    ul { list-style: none; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+    header {
+      width: 100%;
+      background: #222;
+      border-top: 4px solid var(--accent);
+      border-bottom: 4px solid var(--accent);
+      padding: 2rem 0 1rem;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .nav-logo {
+      font-family: 'HeaderFont';
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo img {
+      width: 24px;
+      height: 24px;
+    }
+    nav a {
+      margin-left: 1rem;
+      font-size: 1rem;
+      padding: 0.6rem 1rem;
+      background: #1b1b1b;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    nav a:hover { background: #333; }
+    .overlay-wrapper { background: var(--bg) url('overlay.png') center/cover no-repeat; }
+    .hero {
+      background: #161616;
+      border-top: 4px solid var(--accent);
+      border-bottom: 4px solid var(--accent);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: -4px;
+      width: 100vw;
+      max-width: 100%;
+    }
+    .hero h1 {
+      font-family: 'TitleFont';
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      max-width: 100%;
+    }
+    .hero p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    .featured {
+      background: var(--card);
+      padding: 2rem;
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      margin: 3rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+    }
+    .featured img {
+      width: 200px;
+      height: auto;
+      border-radius: 6px;
+    }
+    .featured-content { flex: 1; }
+    .featured h2 {
+      font-family: 'HeaderFont';
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .featured p { font-size: 1rem; color: #ccc; line-height: 1.6; }
+    .featured small { font-size: 0.9rem; color: #888; }
+    .featured a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      transition: background 0.2s;
+      color: #fff;
+    }
+    .featured a:hover { background: var(--accent); color: var(--bg); }
+    .features-wrapper { padding: 3rem 0; }
+    .features {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+      overflow-x: auto;
+    }
+    .feature-card {
+      min-width: 22%;
+      background: var(--card);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .feature-card h3 {
+      font-family: 'HeaderFont';
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .feature-card p { font-size: 1rem; line-height: 1.6; color: #ccc; }
+    .steps { padding: 4rem 0; }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .step-number {
+      font-family: 'HeaderFont';
+      font-size: 2rem;
+      color: var(--accent);
+      width: 3rem;
+      flex-shrink: 0;
+    }
+    .step-content { margin-left: 1.5rem; }
+    .step-content h4 {
+      font-family: 'HeaderFont';
+      font-size: 1.2rem;
+      color: #eee;
+      margin-bottom: 0.5rem;
+    }
+    .step-content p { font-size: 1rem; color: #ccc; line-height: 1.6; }
+    .cta {
+      background: var(--card);
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 2px solid var(--accent);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      margin: 4rem 0;
+    }
+    .cta h2 {
+      font-family: 'HeaderFont';
+      font-size: 1.8rem;
+      color: #eee;
+    }
+    .cta a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      border: 2px solid var(--accent);
+      letter-spacing: 1px;
+      border-radius: 6px;
+      transition: background 0.2s;
+      color: #fff;
+    }
+    .cta a:hover { background: var(--accent); color: var(--bg); }
+    footer {
+      background: var(--bg);
+      border-top: 2px solid var(--border);
+      padding: 3rem 2rem;
+      color: #888;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+    .footer-section { flex: 1 1 300px; }
+    .footer-section h4 {
+      color: var(--accent);
+      font-family: 'HeaderFont';
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .footer-links ul li { margin-bottom: 0.5rem; }
+    .footer-contact a { color: var(--accent); }
+    @media (max-width: 600px) {
+      .nav-container, .container, footer { padding: 1rem; }
+      .step { flex-direction: column; }
+      .features { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="favicon.ico" alt="icon"><span>FREAX.WTF</span><img src="favicon.ico" alt="icon">
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#featured">Featured</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#github">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <div class="overlay-wrapper">
+    <section class="hero">
+      <h1>WE ARE FREAX, LIKE WTF??</h1>
+      <p>FREAX.WTF provides free, customizable subdomains and news to unify the scattered tech communities across Discord. This project is FOSS, forever.</p>
+    </section>
+    <div class="container">
+      <section id="featured" class="featured">
+        <img src="post-thumb.png" alt="Featured Post">
+        <div class="featured-content">
+          <h2>Featured Post</h2>
+          <p><strong>On Cybergrind &amp; Fragmentation</strong><br>Exploring how FREAX can rebuild connections.</p>
+          <small>June 20, 2025</small><br>
+          <a href="posts.html">Read More</a>
+        </div>
+      </section>
+      <div id="features" class="features-wrapper">
+        <div class="features">
+          <div class="feature-card">
+            <h3>Full Customization</h3>
+            <p>Control your theme, layout, and content, 100% free.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Freedom of Speech</h3>
+            <p>All non-criminal, non-hateful content is welcome.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Nonprofit Ethos</h3>
+            <p>FREAX will always offer core features without charge or ads.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Network Spotlight</h3>
+            <p>Submit posts to be featured and seen by the entire network.</p>
+          </div>
+        </div>
+      </div>
+      <section id="how-it-works" class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Request Your Subdomain</h4>
+            <p>DM @arconightshade or @chiyo.sh when we launch. We’ll set it up for you.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Design & Deploy</h4>
+            <p>Customize with your own HTML/CSS or templates.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Publish & Connect</h4>
+            <p>Share posts and link between subdomains.</p>
+          </div>
+        </div>
+      </section>
+      <section class="cta">
+        <h2>Ready to join the network?</h2>
+        <a href="mailto:admin@freax.wtf">Get Your Subdomain</a>
+      </section>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-section footer-links">
+      <h4>Subdomains</h4>
+      <ul>
+        <li><a href="chiyo.freax.wtf">chiyo.freax.wtf</a></li>
+        <li><a href="arco.freax.wtf">arco.freax.wtf</a></li>
+        <li><a href="#">demo1.freax.wtf</a></li>
+        <li><a href="#">demo2.freax.wtf</a></li>
+        <li><a href="#">demo3.freax.wtf</a></li>
+      </ul>
+    </div>
+    <div class="footer-section footer-contact">
+      <h4>Contact</h4>
+      &copy; 2025 FREAX.WTF<br>
+      <a href="mailto:admin@freax.wtf">Contact Us</a>
+    </div>
+  </footer>
+</body>
+</html>
